@@ -18,4 +18,8 @@ class PagesController < ApplicationController
   def signin
     @title = "Sign In"
   end
+
+  def owner
+    @title = "Owner"
+  end
 end

@@ -73,4 +73,18 @@ describe PagesController do
           :content => @base_title +" | Sign In")
     end
   end
+
+  describe "GET 'owner'" do
+    it "should be successful" do
+      get 'owner'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'owner'
+      response.should have_selector("title",
+          :content => @base_title +" | Owner")
+    end
+  end
+
 end
