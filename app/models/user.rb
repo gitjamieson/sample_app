@@ -33,10 +33,18 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, submitted_password)
     user = find_by_email(email)  # you can use find_by with any attribute
-    return nil if user.nil?
-    return user if user.has_password?(submitted_password) #if has pw, method
+#================
+# way one to right the test
+#================
+#    return nil if user.nil?
+#    return user if user.has_password?(submitted_password) #if has pw, method
                                                           # returns true so
                                                           # user is returned 
+#================
+# way two to right the test
+# if everything on right of ? is true, return user otherwise return nil
+#================
+     user && user.has_password?(submitted_password) ? user : nil
   end
 
   private
