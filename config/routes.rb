@@ -31,7 +31,8 @@ SampleApp::Application.routes.draw do
 
   get "pages/owner"
 
-  get "users/new"
+#  get "users/new" # not needed anymore since after adding resources :users
+                   # "new" is a RESTful operation
   
 
   # The priority is based upon order of creation:
