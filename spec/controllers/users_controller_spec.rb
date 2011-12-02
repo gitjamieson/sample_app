@@ -8,8 +8,8 @@ describe UsersController do
     @base_title="Ruby on Rails Tutorial Sample App"
   end
 
-
   describe "GET 'new'" do
+
     it "should be successful" do
       get 'new'
       response.should be_success
@@ -20,6 +20,27 @@ describe UsersController do
       response.should have_selector("title",
           :content => @base_title +" | Sign up")
     end
+
+    it "should have a name field" do
+      get :new
+      response.should have_selector("input[name='user[name]'][type='text']")
+    end
+
+    it "should have a email field" do
+      get :new
+      response.should have_selector("input[name='user[email]'][type='text']")
+    end
+
+    it "should have a password field" do
+      get :new
+      response.should have_selector("input[name='user[password]'][type='password']")
+    end
+
+    it "should have a password_confirmation field" do
+      get :new
+      response.should have_selector("input[name='user[password_confirmation]'][type='password']")
+    end
+
   end
 
   describe "GET 'show'" do

@@ -10,7 +10,10 @@
       <%= render 'layouts/header' %>
       <section class="round">
         <% flash.each do |key, value| %>
+          <!-- comment out this old flash and add  content tag helper
           <div class="flash <%= key %>"><%= value %></div>
+           -->
+          <%= content_tag(:div, value, :class => "flash #{key}") %>
         <% end %>
         <%= yield %>
       </section>
