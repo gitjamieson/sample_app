@@ -143,10 +143,10 @@ div.field, div.actions {
 }
 
 .field_with_errors {
-  margin-top: 10px
-  padding: 2px
-  background_color: red;
-  display: table:
+  margin-top: 10px;
+  padding: 2px;
+  background-color: red;
+  display: table;
 }
 
 .field_with_errors label {
@@ -179,7 +179,7 @@ div.field, div.actions {
   padding:  5px;
 }
 
-#error_explanation u1 li {
+#error_explanation ul li {
   font-size:  12px;
   list-style:  square;
 }
