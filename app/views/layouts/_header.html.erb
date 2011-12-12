@@ -5,11 +5,18 @@
   <%= link_to logo, home_path %>
 
   <nav class="round">
-     <ul>
+     <u1>
         <li><%= link_to "Home", home_path %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Profile", current_user %></li>
+        <% end %>
         <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "Sign in", 'signin' %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+        <% else %>
+           <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
         <li><%= link_to "Owner", owner_path %></li>
-      </ul>
+      </u1>
    </nav>
 </header>

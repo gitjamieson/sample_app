@@ -1,6 +1,8 @@
 SampleApp::Application.routes.draw do
 
+
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy ]
 
 
   match '/', :to => 'pages#home'
@@ -13,11 +15,17 @@ SampleApp::Application.routes.draw do
 
   match '/help', :to => 'pages#help'
 
-  match '/signin', :to => 'pages#signin'
-
   match '/owner', :to => 'pages#owner'
 
   match '/signup', :to => 'users#new'
+
+#  match '/signin', :to => 'pages#signin' #now that we have sessions we don't 
+                                          # want this named route to go to
+                                          # the pages signin
+
+  match '/signin', :to => 'sessions#new'
+
+  match '/signout', :to => 'sessions#destroy'
 
   get "pages/home"
 
@@ -30,6 +38,11 @@ SampleApp::Application.routes.draw do
   get "pages/signin"
 
   get "pages/owner"
+
+# get "sessions/new" # this was added by the ails generate controller Sessions new
+                      # but is not needed anymore since after adding sessions
+                      # as a resource, we get the RESTful behavior which includes
+                      # "new"
 
 #  get "users/new" # not needed anymore since after adding resources :users
                    # "new" is a RESTful operation
